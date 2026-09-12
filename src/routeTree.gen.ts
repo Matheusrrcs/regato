@@ -12,8 +12,13 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as PlanosRouteImport } from './routes/planos'
+import { Route as PrivacidadeRouteImport } from './routes/privacidade'
 import { Route as ProcessoRouteImport } from './routes/processo'
 import { Route as ServicosRouteImport } from './routes/servicos'
+import { Route as SobreRouteImport } from './routes/sobre'
+import { Route as TermosRouteImport } from './routes/termos'
+import { Route as PortfolioIndexRouteImport } from './routes/portfolio.index'
+import { Route as PortfolioSlugRouteImport } from './routes/portfolio.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -30,6 +35,11 @@ const PlanosRoute = PlanosRouteImport.update({
   path: '/planos',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacidadeRoute = PrivacidadeRouteImport.update({
+  id: '/privacidade',
+  path: '/privacidade',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProcessoRoute = ProcessoRouteImport.update({
   id: '/processo',
   path: '/processo',
@@ -40,43 +50,114 @@ const ServicosRoute = ServicosRouteImport.update({
   path: '/servicos',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SobreRoute = SobreRouteImport.update({
+  id: '/sobre',
+  path: '/sobre',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermosRoute = TermosRouteImport.update({
+  id: '/termos',
+  path: '/termos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortfolioIndexRoute = PortfolioIndexRouteImport.update({
+  id: '/portfolio/',
+  path: '/portfolio/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortfolioSlugRoute = PortfolioSlugRouteImport.update({
+  id: '/portfolio/$slug',
+  path: '/portfolio/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/faq': typeof FaqRoute
   '/planos': typeof PlanosRoute
+  '/privacidade': typeof PrivacidadeRoute
   '/processo': typeof ProcessoRoute
   '/servicos': typeof ServicosRoute
+  '/sobre': typeof SobreRoute
+  '/termos': typeof TermosRoute
+  '/portfolio/$slug': typeof PortfolioSlugRoute
+  '/portfolio/': typeof PortfolioIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/faq': typeof FaqRoute
   '/planos': typeof PlanosRoute
+  '/privacidade': typeof PrivacidadeRoute
   '/processo': typeof ProcessoRoute
   '/servicos': typeof ServicosRoute
+  '/sobre': typeof SobreRoute
+  '/termos': typeof TermosRoute
+  '/portfolio/$slug': typeof PortfolioSlugRoute
+  '/portfolio': typeof PortfolioIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/faq': typeof FaqRoute
   '/planos': typeof PlanosRoute
+  '/privacidade': typeof PrivacidadeRoute
   '/processo': typeof ProcessoRoute
   '/servicos': typeof ServicosRoute
+  '/sobre': typeof SobreRoute
+  '/termos': typeof TermosRoute
+  '/portfolio/$slug': typeof PortfolioSlugRoute
+  '/portfolio/': typeof PortfolioIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/faq' | '/planos' | '/processo' | '/servicos'
+  fullPaths:
+    | '/'
+    | '/faq'
+    | '/planos'
+    | '/privacidade'
+    | '/processo'
+    | '/servicos'
+    | '/sobre'
+    | '/termos'
+    | '/portfolio/$slug'
+    | '/portfolio/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/faq' | '/planos' | '/processo' | '/servicos'
-  id: '__root__' | '/' | '/faq' | '/planos' | '/processo' | '/servicos'
+  to:
+    | '/'
+    | '/faq'
+    | '/planos'
+    | '/privacidade'
+    | '/processo'
+    | '/servicos'
+    | '/sobre'
+    | '/termos'
+    | '/portfolio/$slug'
+    | '/portfolio'
+  id:
+    | '__root__'
+    | '/'
+    | '/faq'
+    | '/planos'
+    | '/privacidade'
+    | '/processo'
+    | '/servicos'
+    | '/sobre'
+    | '/termos'
+    | '/portfolio/$slug'
+    | '/portfolio/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   FaqRoute: typeof FaqRoute
   PlanosRoute: typeof PlanosRoute
+  PrivacidadeRoute: typeof PrivacidadeRoute
   ProcessoRoute: typeof ProcessoRoute
   ServicosRoute: typeof ServicosRoute
+  SobreRoute: typeof SobreRoute
+  TermosRoute: typeof TermosRoute
+  PortfolioSlugRoute: typeof PortfolioSlugRoute
+  PortfolioIndexRoute: typeof PortfolioIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -102,6 +183,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PlanosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacidade': {
+      id: '/privacidade'
+      path: '/privacidade'
+      fullPath: '/privacidade'
+      preLoaderRoute: typeof PrivacidadeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/processo': {
       id: '/processo'
       path: '/processo'
@@ -116,6 +204,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sobre': {
+      id: '/sobre'
+      path: '/sobre'
+      fullPath: '/sobre'
+      preLoaderRoute: typeof SobreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/termos': {
+      id: '/termos'
+      path: '/termos'
+      fullPath: '/termos'
+      preLoaderRoute: typeof TermosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio/': {
+      id: '/portfolio/'
+      path: '/portfolio'
+      fullPath: '/portfolio/'
+      preLoaderRoute: typeof PortfolioIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio/$slug': {
+      id: '/portfolio/$slug'
+      path: '/portfolio/$slug'
+      fullPath: '/portfolio/$slug'
+      preLoaderRoute: typeof PortfolioSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -123,8 +239,13 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   FaqRoute: FaqRoute,
   PlanosRoute: PlanosRoute,
+  PrivacidadeRoute: PrivacidadeRoute,
   ProcessoRoute: ProcessoRoute,
   ServicosRoute: ServicosRoute,
+  SobreRoute: SobreRoute,
+  TermosRoute: TermosRoute,
+  PortfolioSlugRoute: PortfolioSlugRoute,
+  PortfolioIndexRoute: PortfolioIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
