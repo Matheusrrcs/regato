@@ -120,14 +120,14 @@ function ContatoPage() {
                       Nome *
                     </label>
                     <input id="nome" name="nome" required className={inputClass} placeholder="Seu nome" />
-                    {erros.nome && <p className="mt-1 text-xs text-destructive">{erros.nome}</p>}
+                    {erros["nome"] && <p className="mt-1 text-xs text-destructive">{erros["nome"]}</p>}
                   </div>
                   <div>
                     <label htmlFor="email" className="mb-1.5 block text-sm font-medium">
                       E-mail *
                     </label>
                     <input id="email" name="email" type="email" required className={inputClass} placeholder="voce@empresa.com" />
-                    {erros.email && <p className="mt-1 text-xs text-destructive">{erros.email}</p>}
+                    {erros["email"] && <p className="mt-1 text-xs text-destructive">{erros["email"]}</p>}
                   </div>
                   <div>
                     <label htmlFor="telefone" className="mb-1.5 block text-sm font-medium">
@@ -184,7 +184,7 @@ function ContatoPage() {
                     className={inputClass}
                     placeholder="Conte um pouco sobre o seu negócio e o que você precisa."
                   />
-                  {erros.mensagem && <p className="mt-1 text-xs text-destructive">{erros.mensagem}</p>}
+                  {erros["mensagem"] && <p className="mt-1 text-xs text-destructive">{erros["mensagem"]}</p>}
                 </div>
                 <p className="text-xs text-muted-foreground">
                   Ao enviar, você concorda com a nossa{" "}
