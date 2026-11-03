@@ -1,0 +1,15 @@
+<?php
+
+namespace App\Domain\Services\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Service extends Model
+{
+    protected $fillable = ['title', 'slug', 'icon', 'description', 'order', 'is_active'];
+
+    protected $casts = [
+        'is_active' => 'boolean',
+        'order' => 'integer',
+    ];
+}
